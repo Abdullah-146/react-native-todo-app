@@ -2,6 +2,9 @@ import { StatusBar } from "expo-status-bar";
 import { StyleSheet, Text, View } from "react-native";
 import "react-native-gesture-handler";
 import { NavigationContainer } from "@react-navigation/native";
+import axios from 'axios'
+
+
 
 
 import { createStackNavigator, StackView } from "@react-navigation/stack";
@@ -24,7 +27,22 @@ function MyTabs() {
     </Tab.Navigator>
   );
 }
+const  ap = async ()=> { let abd =await axios.get('https://whatsapp-clone-966fa-default-rtdb.firebaseio.com/data.json' )
+
+  const result =  Object.values(abd.data)
+
+  console.log(result);
+
+}
+
+ 
 export default function App() {
+  ap()
+  axios.post('https://whatsapp-clone-966fa-default-rtdb.firebaseio.com/data.json' ,{name:'haris' , age:'21'})
+
+
+
+ 
   return (
     <Context>
       <NavigationContainer>
